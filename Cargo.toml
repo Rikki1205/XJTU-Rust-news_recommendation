@@ -1,0 +1,79 @@
+[package]
+name = "news_recommendation_system"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4"
+actix-files = "0.6"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+natural = '0.5.0'
+plotters = "0.3.4"
+
+
+
+# For openGauss (or PostgreSQL)
+tokio-postgres = { version = "0.7.10", features = ["with-uuid-1", "with-chrono-0_4"] } # Updated uuid to v1
+opengauss = { version = "0.1.0" } # From crates.io, assuming compatibility with tokio-postgres 0.7.x
+
+# For JWT
+jsonwebtoken = "8.3.0"
+chrono = { version = "0.4.26", features = ["serde"] }
+
+# For password hashing
+bcrypt = "0.15.0"
+
+# For UUID generation
+uuid = { version = "1.4.1", features = ["v4", "serde"] }
+
+# For environment variable management
+dotenv = "0.15.0"
+
+# For configuration management
+config = { version = "0.13.3", features = ["toml"] }
+
+# Logging
+env_logger = "0.10.0"
+log = "0.4.19"
+
+# Error handling
+thiserror = "1.0.44"
+anyhow = "1.0.72"
+
+# Web server specific (OpenAPI documentation)
+utoipa = { version = "5.3.1", features = ["actix_extras", "chrono", "uuid"] }
+utoipa-swagger-ui = { version = "9.0.0", features = ["actix-web"] }
+
+# HTTP Client for crawler
+reqwest = { version = "0.11.18", features = ["json", "rustls-tls"] }
+# HTML Parsing for crawler
+scraper = "0.17.1"
+
+# Scheduling for crawler
+tokio-cron-scheduler = "0.9.4"
+
+# For connection pooling (recommended for Actix)
+deadpool-postgres = { version = "0.10.5", features = ["serde"] }
+
+# For random number generation (e.g., for crawler delays)
+rand = "0.8.5"
+
+# For futures utilities
+futures-util = "0.3.28"
+
+# For Recommendation Engine
+rust-stemmers = "1.2.0"
+# For more complex ML, consider crates like linfa or rust-bert, but start simple.
+# For similarity calculations (e.g. cosine similarity), often implemented manually or part of vector libraries.
+nalgebra = { version = "0.32", optional = true } # For vector operations if needed
+
+url = "2.4"
+once_cell = "1.21.3"
+[features]
+default = []
+# Enable nalgebra if heavy vector math is required for recommendations
+recommendation_math = ["dep:nalgebra"]
