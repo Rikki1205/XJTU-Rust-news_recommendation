@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#4cc9f020" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#4cc9f0" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">体育</text>
+  
+  <!-- 随机图形装饰 -->
+  <rect x="249" y="347" width="93" height="65" fill="#4cc9f0" opacity="0.23410813397855784" rx="5" ry="5"/><polygon points="402,145 424,186 443,186" fill="#4cc9f0" opacity="0.2896292447648904"/><circle cx="450" cy="203" r="29" fill="#4cc9f0" opacity="0.19145754510969712"/><polygon points="632,159 614,199 685,199" fill="#4cc9f0" opacity="0.22125756203375993"/><rect x="676" y="297" width="49" height="59" fill="#4cc9f0" opacity="0.15931119126800197" rx="5" ry="5"/><polygon points="609,225 625,249 661,249" fill="#4cc9f0" opacity="0.11899158437172891"/><circle cx="601" cy="299" r="53" fill="#4cc9f0" opacity="0.19754739818895828"/><polygon points="174,166 170,199 203,199" fill="#4cc9f0" opacity="0.182624125999713"/><circle cx="595" cy="105" r="13" fill="#4cc9f0" opacity="0.1123318696389327"/><polygon points="642,206 626,257 685,257" fill="#4cc9f0" opacity="0.2316502799048979"/><circle cx="384" cy="144" r="53" fill="#4cc9f0" opacity="0.1204122285271359"/><rect x="256" y="178" width="115" height="62" fill="#4cc9f0" opacity="0.282918349754435" rx="5" ry="5"/><rect x="327" y="312" width="101" height="79" fill="#4cc9f0" opacity="0.26703722252069295" rx="5" ry="5"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#4cc9f0">#7</text>
+</svg>

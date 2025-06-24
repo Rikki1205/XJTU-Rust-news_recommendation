@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8faff" rx="20" ry="20"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="60" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#212529">Rust 机器学习算法实现流程</text>
+  
+  <!-- 流程图主体 -->
+  <g transform="translate(50, 100)">
+    <!-- 数据收集 -->
+    <rect x="50" y="0" width="150" height="80" rx="10" ry="10" fill="#4361ee" opacity="0.8"/>
+    <text x="125" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">数据收集</text>
+    <text x="125" y="50" font-family="Arial" font-size="14" text-anchor="middle" fill="white">用户行为与新闻特征</text>
+    
+    <!-- 数据预处理 -->
+    <rect x="50" y="120" width="150" height="80" rx="10" ry="10" fill="#4361ee" opacity="0.8"/>
+    <text x="125" y="150" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">数据预处理</text>
+    <text x="125" y="170" font-family="Arial" font-size="14" text-anchor="middle" fill="white">特征提取与归一化</text>
+    
+    <!-- 线性回归模型 -->
+    <rect x="300" y="60" width="200" height="100" rx="10" ry="10" fill="#f72585" opacity="0.8"/>
+    <text x="400" y="90" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">线性回归模型</text>
+    <text x="400" y="115" font-family="Arial" font-size="14" text-anchor="middle" fill="white">y = β₀ + β₁x₁ + ... + βₙxₙ</text>
+    <text x="400" y="140" font-family="Arial" font-size="14" text-anchor="middle" fill="white">预测用户兴趣度</text>
+    
+    <!-- 决策树模型 -->
+    <rect x="300" y="180" width="200" height="100" rx="10" ry="10" fill="#3a0ca3" opacity="0.8"/>
+    <text x="400" y="210" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">决策树模型</text>
+    <text x="400" y="235" font-family="Arial" font-size="14" text-anchor="middle" fill="white">基于特征的分类决策</text>
+    <text x="400" y="260" font-family="Arial" font-size="14" text-anchor="middle" fill="white">内容分类与推荐</text>
+    
+    <!-- 推荐结果生成 -->
+    <rect x="600" y="120" width="150" height="80" rx="10" ry="10" fill="#4cc9f0" opacity="0.8"/>
+    <text x="675" y="150" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">推荐结果生成</text>
+    <text x="675" y="170" font-family="Arial" font-size="14" text-anchor="middle" fill="white">个性化新闻推荐</text>
+    
+    <!-- 用户反馈 -->
+    <rect x="300" y="320" width="200" height="80" rx="10" ry="10" fill="#4cc9f0" opacity="0.8"/>
+    <text x="400" y="350" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">用户反馈</text>
+    <text x="400" y="370" font-family="Arial" font-size="14" text-anchor="middle" fill="white">点击、评分与交互</text>
+    
+    <!-- 模型更新 -->
+    <rect x="50" y="320" width="150" height="80" rx="10" ry="10" fill="#4361ee" opacity="0.8"/>
+    <text x="125" y="350" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">模型更新</text>
+    <text x="125" y="370" font-family="Arial" font-size="14" text-anchor="middle" fill="white">持续学习优化</text>
+    
+    <!-- 连接线 -->
+    <!-- 数据收集 -> 数据预处理 -->
+    <line x1="125" y1="80" x2="125" y2="120" stroke="#212529" stroke-width="2"/>
+    <polygon points="125,120 120,110 130,110" fill="#212529"/>
+    
+    <!-- 数据预处理 -> 线性回归模型 -->
+    <path d="M200,160 C250,160 250,110 300,110" fill="none" stroke="#212529" stroke-width="2"/>
+    <polygon points="300,110 290,105 290,115" fill="#212529"/>
+    
+    <!-- 数据预处理 -> 决策树模型 -->
+    <path d="M200,160 C250,160 250,230 300,230" fill="none" stroke="#212529" stroke-width="2"/>
+    <polygon points="300,230 290,225 290,235" fill="#212529"/>
+    
+    <!-- 线性回归模型 -> 推荐结果生成 -->
+    <path d="M500,110 C550,110 550,160 600,160" fill="none" stroke="#212529" stroke-width="2"/>
+    <polygon points="600,160 590,155 590,165" fill="#212529"/>
+    
+    <!-- 决策树模型 -> 推荐结果生成 -->
+    <path d="M500,230 C550,230 550,160 600,160" fill="none" stroke="#212529" stroke-width="2"/>
+    <polygon points="600,160 590,155 590,165" fill="#212529"/>
+    
+    <!-- 推荐结果生成 -> 用户反馈 -->
+    <path d="M675,200 C675,240 500,240 500,320" fill="none" stroke="#212529" stroke-width="2"/>
+    <polygon points="500,320 495,310 505,310" fill="#212529"/>
+    
+    <!-- 用户反馈 -> 模型更新 -->
+    <path d="M300,360 C250,360 200,360 200,360" fill="none" stroke="#212529" stroke-width="2"/>
+    <polygon points="200,360 210,355 210,365" fill="#212529"/>
+    
+    <!-- 模型更新 -> 数据预处理（形成循环） -->
+    <path d="M125,320 C125,300 20,300 20,160 C20,50 50,50 50,160" fill="none" stroke="#212529" stroke-width="2"/>
+    <polygon points="50,160 45,150 55,150" fill="#212529"/>
+  </g>
+  
+  <!-- Rust 图标 -->
+  <g transform="translate(680, 460) scale(0.2)">
+    <circle cx="128" cy="128" r="120" fill="#f72585" opacity="0.8"/>
+    <text x="128" y="180" font-family="Arial" font-size="180" font-weight="bold" text-anchor="middle" fill="white">R</text>
+  </g>
+  
+  <!-- 代码片段 -->
+  <rect x="50" y="450" width="500" height="120" rx="10" ry="10" fill="white" stroke="#6c757d" stroke-width="1"/>
+  <text x="70" y="480" font-family="Courier New" font-size="14" fill="#212529">// Rust 实现的线性回归模型训练</text>
+  <text x="70" y="500" font-family="Courier New" font-size="14" fill="#212529">fn train_linear_regression(data: &Dataset) -> LinearModel {</text>
+  <text x="70" y="520" font-family="Courier New" font-size="14" fill="#212529">    let model = LinearRegression::new()</text>
+  <text x="70" y="540" font-family="Courier New" font-size="14" fill="#212529">        .fit(&data)</text>
+  <text x="70" y="560" font-family="Courier New" font-size="14" fill="#212529">        .expect("无法训练线性回归模型");</text>
+</svg>

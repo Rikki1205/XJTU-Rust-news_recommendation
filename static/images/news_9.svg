@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#f7258520" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#f72585" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">科技</text>
+  
+  <!-- 随机图形装饰 -->
+  <polygon points="243,151 231,194 264,194" fill="#f72585" opacity="0.16143366967481856"/><circle cx="244" cy="130" r="47" fill="#f72585" opacity="0.1425197026620595"/><rect x="291" y="280" width="72" height="63" fill="#f72585" opacity="0.2805418934153501" rx="5" ry="5"/><circle cx="434" cy="307" r="39" fill="#f72585" opacity="0.12734337782861915"/><polygon points="625,203 597,230 677,230" fill="#f72585" opacity="0.14269082155336507"/><circle cx="532" cy="336" r="36" fill="#f72585" opacity="0.26318287039084237"/><rect x="669" y="234" width="64" height="63" fill="#f72585" opacity="0.24292572716380764" rx="5" ry="5"/><circle cx="205" cy="305" r="46" fill="#f72585" opacity="0.1950937048609368"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#f72585">#9</text>
+</svg>

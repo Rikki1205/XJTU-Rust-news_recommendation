@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#4f772d20" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#4f772d" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">健康</text>
+  
+  <!-- 随机图形装饰 -->
+  <rect x="666" y="337" width="40" height="49" fill="#4f772d" opacity="0.20645770499885296" rx="5" ry="5"/><circle cx="378" cy="310" r="12" fill="#4f772d" opacity="0.26781127565316953"/><polygon points="681,268 698,307 712,307" fill="#4f772d" opacity="0.21660093422663207"/><circle cx="309" cy="227" r="48" fill="#4f772d" opacity="0.14347063170181118"/><circle cx="288" cy="343" r="39" fill="#4f772d" opacity="0.14385236142099878"/><rect x="530" y="168" width="26" height="27" fill="#4f772d" opacity="0.18117664666846622" rx="5" ry="5"/><polygon points="125,265 126,316 160,316" fill="#4f772d" opacity="0.1384540225761918"/><rect x="218" y="113" width="69" height="26" fill="#4f772d" opacity="0.23510519944877012" rx="5" ry="5"/><circle cx="106" cy="126" r="39" fill="#4f772d" opacity="0.2310752669320357"/><circle cx="452" cy="206" r="18" fill="#4f772d" opacity="0.2778578671345934"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#4f772d">#8</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#4361ee20" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#4361ee" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">政治</text>
+  
+  <!-- 随机图形装饰 -->
+  <circle cx="669" cy="193" r="31" fill="#4361ee" opacity="0.22920953238760236"/><polygon points="232,313 253,338 274,338" fill="#4361ee" opacity="0.17176289433131692"/><polygon points="186,104 191,160 209,160" fill="#4361ee" opacity="0.28774435565264067"/><circle cx="124" cy="327" r="50" fill="#4361ee" opacity="0.1405115147115682"/><polygon points="125,121 112,174 184,174" fill="#4361ee" opacity="0.1562989325454136"/><circle cx="236" cy="201" r="56" fill="#4361ee" opacity="0.25903277996165475"/><rect x="525" y="143" width="63" height="49" fill="#4361ee" opacity="0.29611017498921677" rx="5" ry="5"/><rect x="391" y="120" width="42" height="43" fill="#4361ee" opacity="0.24656176301445934" rx="5" ry="5"/><polygon points="519,185 548,229 559,229" fill="#4361ee" opacity="0.28431658632511647"/><rect x="134" y="260" width="32" height="27" fill="#4361ee" opacity="0.27571618250299545" rx="5" ry="5"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#4361ee">#5</text>
+</svg>

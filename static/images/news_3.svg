@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#f8961e20" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#f8961e" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">社会</text>
+  
+  <!-- 随机图形装饰 -->
+  <circle cx="529" cy="119" r="15" fill="#f8961e" opacity="0.1541248631110056"/><polygon points="614,115 616,151 670,151" fill="#f8961e" opacity="0.29599353027120257"/><polygon points="153,124 156,172 185,172" fill="#f8961e" opacity="0.2763298042622875"/><polygon points="254,346 250,370 280,370" fill="#f8961e" opacity="0.19433854230970718"/><circle cx="259" cy="101" r="55" fill="#f8961e" opacity="0.2003866531423537"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#f8961e">#3</text>
+</svg>

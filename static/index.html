@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能新闻推荐系统</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/user-profile.css">
+    <link rel="stylesheet" href="/static/css/interactions.css">
+    <link rel="stylesheet" href="/static/css/comments.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>智能新闻<span>推荐</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">首页</a></li>
+                    <li><a href="/viz">数据分析</a></li>
+                    <li><a href="#about">关于系统</a></li>
+                </ul>
+            </nav>
+                <div class="user-controls">
+                <button id="refresh-btn"><i class="fas fa-sync-alt"></i> 刷新推荐</button>
+                <button id="personalized-btn" style="display: none;"><i class="fas fa-user-cog"></i> 个性化推荐</button>             <!-- 未登录状态 -->
+                <div id="auth-controls" class="auth-controls">
+                    <a href="/auth.html" class="auth-btn login-btn">
+                        <i class="fas fa-sign-in-alt"></i> 登录
+                    </a>
+                    <a href="/auth.html" class="auth-btn register-btn">
+                        <i class="fas fa-user-plus"></i> 注册
+                    </a>
+                </div>
+                <!-- 已登录状态 -->
+                <div id="user-controls" class="user-controls-logged" style="display: none;">
+                    <span id="welcome-user" class="welcome-text">
+                        <i class="fas fa-user"></i> 欢迎，<span id="username-display"></span>
+                    </span>
+                    <button id="user-profile-btn" class="user-profile-btn">
+                        <i class="fas fa-cog"></i> 设置
+                    </button>
+                    <button id="logout-btn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> 退出
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>基于 Rust 实现的<br>智能新闻推荐系统</h2>
+                    <p>使用线性回归和决策树算法，为您提供个性化的阅读体验</p>
+                    <div class="hero-buttons">
+                        <a href="#recommendations" class="btn">查看推荐</a>
+                        <button type="button" id="start-crawler" class="btn btn-secondary">
+                            <i class="fas fa-spider"></i> 开始爬取
+                        </button>
+                        <button type="button" id="recrawl-button" class="btn btn-secondary">
+                            <i class="fas fa-sync"></i> 重新爬取
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/static/images/hero-image.svg" alt="智能推荐示意图">
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations" class="recommendations">
+            <div class="container">
+                <h2 class="section-title">为您推荐 <span class="highlight">您可能感兴趣的内容</span></h2>
+                <div class="recommendation-info">
+                    <div class="info-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>基于机器学习</h3>
+                        <p>使用线性回归算法分析您的阅读偏好</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>实时数据分析</h3>
+                        <p>持续学习您的兴趣变化并调整推荐</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Rust 高性能</h3>
+                        <p>基于 Rust 实现的高效推荐引擎</p>
+                    </div>
+                </div>
+                
+                <div class="category-filter">
+                    <span>筛选: </span>
+                    <button class="category-btn active" data-category="all">全部</button>
+                    <button class="category-btn" data-category="政治">政治</button>
+                    <button class="category-btn" data-category="经济">经济</button>
+                    <button class="category-btn" data-category="科技">科技</button>
+                    <button class="category-btn" data-category="体育">体育</button>
+                    <button class="category-btn" data-category="娱乐">娱乐</button>
+                    <button class="category-btn" data-category="健康">健康</button>
+                    <button class="category-btn" data-category="教育">教育</button>
+                    <button class="category-btn" data-category="环境">环境</button>
+                    <button class="category-btn" data-category="国际">国际</button>
+                    <button class="category-btn" data-category="社会">社会</button>
+                </div>
+                
+                <div class="news-grid" id="news-container">
+                    <!-- 新闻内容将通过 JavaScript 动态加载 -->
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>正在加载推荐内容...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">关于<span class="highlight">推荐系统</span></h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="/static/images/tfidf-diagram.png" alt="机器学习算法示意图">
+                    </div>
+                    <div class="about-text">
+                        <h3>Rust 实现的智能推荐系统</h3>
+                        <p>本系统采用 Rust 语言实现了基于 TF-IDF 的个性化推荐算法，结合用户的历史浏览行为、兴趣标签和反馈，为用户提供个性化的新闻推荐。</p>
+                        
+                        <h4>算法介绍</h4>
+                        <ul>
+                            <li><strong>TF-IDF (词频-逆文档频率)：</strong>通过计算词语在文档中的重要性，构建用户兴趣画像和新闻内容画像，从而实现精准匹配。</li>
+                            <li><strong>余弦相似度：</strong>用于衡量用户画像与新闻内容之间的相似度，推荐最符合用户兴趣的新闻。</li>
+                        </ul>
+                        
+                        <h4>系统特点</h4>
+                        <ul>
+                            <li>高性能：基于 Rust 语言，性能优越</li>
+                            <li>个性化：根据用户兴趣实时调整推荐结果</li>
+                            <li>数据可视化：提供直观的推荐效果分析</li>
+                        </ul>
+                        
+                        <a href="/viz" class="btn">查看数据分析</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>智能新闻<span>推荐</span></h3>
+                    <p>基于 Rust 实现的新闻推荐系统</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/viz">数据分析</a></li>
+                        <li><a href="#about">关于系统</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>技术栈</h4>
+                    <ul>
+                        <li><i class="fab fa-rust"></i> Rust</li>
+                        <li><i class="fas fa-server"></i> Actix Web</li>
+                        <li><i class="fas fa-chart-bar"></i> 数据可视化</li>
+                        <li><i class="fas fa-brain"></i> 机器学习</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智能新闻推荐系统 - 基于 Rust 实现的机器学习新闻推荐</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 新闻详情模态框 -->
+    <div class="modal" id="news-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <h3 id="modal-title"></h3>
+                <div class="news-meta">
+                    <span id="modal-category" class="category-tag"></span>
+                    <span id="modal-date"></span>
+                    <span id="modal-author"></span>
+                </div>
+                <div class="news-content" id="modal-content"></div>
+                <!-- 评论区域 -->
+                <div class="news-comments">
+                    <h4>评论区</h4>
+                    <div id="comments-container">
+                        <!-- 评论将通过JavaScript动态加载 -->
+                        <div class="loading-comments">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>正在加载评论...</p>
+                        </div>
+                    </div>
+                    <div class="comment-form">
+                        <h5>发表评论</h5>
+                        <textarea id="comment-text" placeholder="请输入您的评论..."></textarea>
+                        <button id="submit-comment" class="btn">提交评论</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户个人中心模态框 -->
+    <div class="modal" id="user-profile-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <h3>个人中心</h3>
+                <div class="profile-tabs">
+                    <button class="tab-btn active" data-tab="profile-info">
+                        <i class="fas fa-user-circle"></i> 个人信息
+                    </button>
+                    <button class="tab-btn" data-tab="reading-history">
+                        <i class="fas fa-history"></i> 阅读历史
+                    </button>
+                    <button class="tab-btn" data-tab="feedback-history">
+                        <i class="fas fa-comment-dots"></i> 反馈历史
+                    </button>
+                </div>
+                
+                <div class="tab-content" id="profile-info">
+                    <div class="profile-form">
+                        <div class="form-group">
+                            <label for="username">用户名</label>
+                            <input type="text" id="username" placeholder="请输入用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" placeholder="请输入邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="interests">兴趣标签</label>
+                            <div class="interest-tags">
+                                <span class="interest-tag">政治 <i class="fas fa-times"></i></span>
+                                <span class="interest-tag">科技 <i class="fas fa-times"></i></span>
+                                <span class="interest-tag">体育 <i class="fas fa-times"></i></span>
+                                <input type="text" id="new-interest" placeholder="添加新标签...">
+                            </div>
+                        </div>
+                        <button id="save-profile" class="btn">保存修改</button>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="reading-history" style="display: none;">
+                    <div class="history-list">
+                        <!-- 阅读历史将通过JavaScript动态加载 -->
+                        <div class="loading-history">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>正在加载阅读历史...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="feedback-history" style="display: none;">
+                    <div class="feedback-list">
+                        <!-- 反馈历史将通过JavaScript动态加载 -->
+                        <div class="loading-feedback">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>正在加载反馈历史...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 系统状态模态框 -->
+    <div class="modal" id="system-status-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <h3>系统状态</h3>
+                <div id="system-status-container">
+                    <div class="loading-status">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>正在检查系统状态...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app_integrated.js"></script>
+    <script src="/static/js/user.js"></script>
+    <script src="/static/js/interactions.js"></script>
+    <script>
+        // 确保爬虫按钮正常工作
+        document.addEventListener('DOMContentLoaded', function() {
+            const startCrawlerBtn = document.getElementById('start-crawler');
+            if (startCrawlerBtn) {
+                startCrawlerBtn.addEventListener('click', function() {
+                    console.log('内联脚本: 点击爬取按钮');
+                    if (typeof window.startCrawler === 'function') {
+                        window.startCrawler();
+                    } else {
+                        console.error('startCrawler函数未定义');
+                        alert('爬虫功能暂时不可用，请刷新页面后重试');
+                    }
+                });
+            }
+            
+            // 用户个人中心按钮事件
+            const userProfileBtn = document.getElementById('user-profile-btn');
+            if (userProfileBtn) {
+                userProfileBtn.addEventListener('click', function() {
+                    openUserProfileModal();
+                });
+            }
+            
+            // 个人中心标签切换
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 移除所有标签的active类
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    // 添加当前标签的active类
+                    this.classList.add('active');
+                    
+                    // 隐藏所有内容
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    
+                    // 显示当前标签对应的内容
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).style.display = 'block';
+                });
+            });
+            
+            // 关闭用户个人中心模态框
+            const closeUserProfileBtn = document.querySelector('#user-profile-modal .close-btn');
+            if (closeUserProfileBtn) {
+                closeUserProfileBtn.addEventListener('click', function() {
+                    closeUserProfileModal();
+                });
+            }
+            
+            // 点击模态框外部关闭
+            window.addEventListener('click', function(event) {
+                const userProfileModal = document.getElementById('user-profile-modal');
+                if (event.target == userProfileModal) {
+                    closeUserProfileModal();
+                }
+                
+                const systemStatusModal = document.getElementById('system-status-modal');
+                if (event.target == systemStatusModal) {
+                    closeSystemStatusModal();
+                }
+                
+                const newsModal = document.getElementById('news-modal');
+                if (event.target == newsModal) {
+                    closeModal();
+                }
+            });
+        });
+        
+        // 打开用户个人中心模态框
+        function openUserProfileModal() {
+            const modal = document.getElementById('user-profile-modal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+            
+            // 加载用户信息
+            loadUserProfile();
+        }
+        
+        // 关闭用户个人中心模态框
+        function closeUserProfileModal() {
+            const modal = document.getElementById('user-profile-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        }
+        
+        // 打开系统状态模态框
+        function openSystemStatusModal() {
+            const modal = document.getElementById('system-status-modal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+            
+            // 加载系统状态
+            loadSystemStatus();
+        }
+        
+        // 关闭系统状态模态框
+        function closeSystemStatusModal() {
+            const modal = document.getElementById('system-status-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        }
+    </script>
+</body>
+</html>

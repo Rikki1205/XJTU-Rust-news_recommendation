@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#4cc9f020" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#4cc9f0" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">体育</text>
+  
+  <!-- 随机图形装饰 -->
+  <circle cx="163" cy="168" r="58" fill="#4cc9f0" opacity="0.13814169314039187"/><circle cx="258" cy="222" r="52" fill="#4cc9f0" opacity="0.2632812134064988"/><circle cx="404" cy="148" r="16" fill="#4cc9f0" opacity="0.2839246027707988"/><polygon points="206,195 233,244 257,244" fill="#4cc9f0" opacity="0.10616480021955016"/><polygon points="540,317 560,337 562,337" fill="#4cc9f0" opacity="0.20446256612427915"/><rect x="427" y="191" width="63" height="78" fill="#4cc9f0" opacity="0.17428292731937572" rx="5" ry="5"/><rect x="309" y="217" width="85" height="21" fill="#4cc9f0" opacity="0.11885980903469587" rx="5" ry="5"/><polygon points="368,278 380,301 396,301" fill="#4cc9f0" opacity="0.23299232855993096"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#4cc9f0">#1</text>
+</svg>

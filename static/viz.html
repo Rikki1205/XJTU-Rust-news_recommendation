@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据分析 - 智能新闻推荐系统</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- 保留 Chart.js 用于反馈趋势 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 新增 ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+<body class="viz-page">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>智能新闻<span>推荐</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/viz" class="active">数据分析</a></li>
+                    <li><a href="/#about">关于系统</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls">
+                <button id="system-status-btn"><i class="fas fa-server"></i> 系统状态</button>
+                <button id="user-profile-btn" class="user-profile-btn"><i class="fas fa-user"></i> 个人中心</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="viz-hero">
+            <div class="container">
+                <h2 class="section-title">数据<span class="highlight">可视化分析</span></h2>
+                <p class="viz-intro">本页面展示了系统中的各类数据分析结果，包括推荐效果对比、用户兴趣分布与新闻热度分析</p>
+            </div>
+        </section>
+
+        <section class="dashboard">
+            <div class="container">
+                <div class="dashboard-grid">
+                    <!-- 推荐效果（保留 Chart.js 示例） -->
+                    <div class="dashboard-card full-width">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-line"></i> 推荐效果对比分析</h3>
+                            <p>过去7天内普通推荐与智能推荐的效果对比（点击率%）</p>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="recommendationChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- 各类别新闻热度分析（改为 ECharts div） -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-pie"></i> 各类别新闻热度分析</h3>
+                            <p>最近7天不同类别新闻的发布量示例</p>
+                        </div>
+                        <div class="card-body">
+                            <div id="popularityChart" style="width:100%; height:300px;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 机器学习模型性能（改为 ECharts div） -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-robot"></i> 机器学习模型性能</h3>
+                            <p>不同模型的准确率与召回率对比</p>
+                        </div>
+                        <div class="card-body">
+                            <div id="modelPerformanceChart" style="width:100%; height:300px;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 用户兴趣热力图（改为 ECharts div） -->
+                    <div class="dashboard-card full-width">
+                        <div class="card-header">
+                            <h3><i class="fas fa-user-chart"></i> 用户兴趣热力图</h3>
+                            <p>不同用户群体对类别内容的兴趣热度</p>
+                        </div>
+                        <div class="card-body">
+                            <div id="interestHeatmapChart" style="width:100%; height:400px;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 其它卡片保持不变 -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-comments"></i> 用户反馈统计</h3>
+                            <p>用户对不同类别新闻的反馈情况</p>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="feedbackChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-tachometer-alt"></i> 系统性能监控</h3>
+                            <p>系统响应时间与资源使用情况</p>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 以下省略算法实现和反馈分析部分，保持不变 -->
+    </main>
+
+    <footer>
+        <!-- ... footer 内容不变 ... -->
+    </footer>
+
+    <!-- 模态框及基础脚本省略保持不变 -->
+    
+    <!-- 在所有自定义脚本前插入 ECharts 渲染逻辑 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. 各类别新闻热度
+        fetch('/viz/category_heat')
+          .then(res => res.json())
+          .then(data => {
+            const dates = data.map(pt => pt.date);
+            const cats = Object.keys(data[0].counts);
+            const series = cats.map(cat => ({
+              name: cat,
+              type: 'line',
+              data: data.map(pt => pt.counts[cat])
+            }));
+            echarts.init(document.getElementById('popularityChart')).setOption({
+              tooltip: {},
+              legend: { data: cats },
+              xAxis: { type: 'category', data: dates },
+              yAxis: { type: 'value' },
+              series
+            });
+        });
+
+        // 2. 机器学习模型性能
+        fetch('/viz/model_performance')
+          .then(res => res.json())
+          .then(data => {
+            const models = data.map(d => d.model);
+            const acc = data.map(d => d.accuracy);
+            const rec = data.map(d => d.recall);
+            echarts.init(document.getElementById('modelPerformanceChart')).setOption({
+              tooltip: {},
+              legend: { data: ['Accuracy','Recall'] },
+              xAxis: { type: 'category', data: models },
+              yAxis: { type: 'value' },
+              series: [
+                { name: 'Accuracy', type: 'bar', data: acc },
+                { name: 'Recall', type: 'bar', data: rec }
+              ]
+            });
+        });
+
+        // 3. 用户兴趣热力图
+        fetch('/viz/user_interest')
+          .then(res => res.json())
+          .then(data => {
+            const segments = data.map(d => d.user_segment);
+            const cats = ['财经','科技','体育','娱乐','社会'];
+            const heatData = [];
+            data.forEach((d,i) => {
+              d.heat.forEach((v,j) => {
+                heatData.push([i, j, v]);
+              });
+            });
+            echarts.init(document.getElementById('interestHeatmapChart')).setOption({
+              tooltip: {},
+              xAxis: { type: 'category', data: segments },
+              yAxis: { type: 'category', data: cats },
+              visualMap: {
+                min: 0, max: 100,
+                orient: 'horizontal', left: 'center', bottom: 20
+              },
+              series: [{
+                name: '兴趣热度',
+                type: 'heatmap',
+                data: heatData
+              }]
+            });
+        });
+    });
+    </script>
+    <!-- 保留原有脚本 -->
+    <script src="/static/js/viz.js"></script>
+    <script src="/static/js/user.js"></script>
+    <script src="/static/js/feedback-analysis.js"></script>
+</body>
+</html>

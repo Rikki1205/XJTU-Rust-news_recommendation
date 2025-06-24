@@ -1,0 +1,438 @@
+/* 新闻互动样式 */
+.news-interactions {
+    margin: 20px 0;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+.interaction-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.interaction-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background: white;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.interaction-btn:hover {
+    background: #f8f9fa;
+    border-color: #ccc;
+    transform: translateY(-1px);
+}
+
+.interaction-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.interaction-btn i {
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* 点赞按钮 */
+.like-btn:hover {
+    background: #ffe6e6;
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+.like-btn.active,
+.like-btn i.fas {
+    color: #e74c3c;
+}
+
+/* 评论按钮 */
+.comment-btn:hover {
+    background: #e6f3ff;
+    border-color: #3498db;
+    color: #3498db;
+}
+
+/* 收藏按钮 */
+.favorite-btn:hover {
+    background: #fff8e6;
+    border-color: #f39c12;
+    color: #f39c12;
+}
+
+.favorite-btn.active,
+.favorite-btn i.fas {
+    color: #f39c12;
+}
+
+/* 评论区域 */
+.news-comments {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+.news-comments h4 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 18px;
+}
+
+/* 评论列表 */
+.comments-list {
+    margin-bottom: 30px;
+}
+
+.comment-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 3px solid #3498db;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-weight: 500;
+}
+
+.comment-user i {
+    color: #3498db;
+    font-size: 18px;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-date {
+    color: #999;
+    font-size: 12px;
+}
+
+.delete-comment {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.delete-comment:hover {
+    background: #ffe6e6;
+}
+
+.comment-content {
+    color: #333;
+    line-height: 1.6;
+}
+
+.comment-content p {
+    margin: 0;
+}
+
+/* 评论表单 */
+.comment-form {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.comment-form h5 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+.comment-form textarea:disabled {
+    background: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.comment-form .btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.comment-form .btn:hover:not(:disabled) {
+    background: #2980b9;
+}
+
+.comment-form .btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* 加载状态 */
+.loading-comments,
+.loading-feedback,
+.loading-history {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.loading-comments i,
+.loading-feedback i,
+.loading-history i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #3498db;
+}
+
+/* 空状态 */
+.no-comments,
+.no-content {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.no-comments i,
+.no-content i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+/* 错误状态 */
+.error-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #e74c3c;
+}
+
+.error-message i {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.retry-btn {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: #c0392b;
+}
+
+/* 反馈历史 */
+.feedback-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.feedback-item {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+.feedback-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.feedback-content {
+    margin-bottom: 10px;
+}
+
+.feedback-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.feedback-type {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.feedback-type i {
+    font-size: 16px;
+}
+
+.feedback-date {
+    color: #999;
+    font-size: 12px;
+}
+
+.feedback-article-title {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.feedback-content-text {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    font-style: italic;
+    color: #666;
+    border-left: 3px solid #3498db;
+}
+
+.feedback-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 4px 8px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background: #f8f9fa;
+    border-color: #ccc;
+}
+
+.view-article {
+    color: #3498db;
+    border-color: #3498db;
+}
+
+.view-article:hover {
+    background: #e6f3ff;
+}
+
+.delete-feedback {
+    color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.delete-feedback:hover {
+    background: #ffe6e6;
+}
+
+/* 反馈提示 */
+.interaction-feedback,
+.comment-feedback {
+    position: fixed;
+    z-index: 10000;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .interaction-buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .interaction-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .comment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .comment-actions {
+        align-self: flex-end;
+    }
+    
+    .feedback-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .feedback-actions {
+        justify-content: flex-end;
+    }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.interaction-btn:active {
+    animation: pulse 0.2s ease;
+}
+
+/* 主题色彩变量 */
+:root {
+    --like-color: #e74c3c;
+    --comment-color: #3498db;
+    --favorite-color: #f39c12;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --error-color: #e74c3c;
+}

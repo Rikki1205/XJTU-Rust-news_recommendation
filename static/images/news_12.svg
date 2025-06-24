@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#f7258520" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#f72585" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">科技</text>
+  
+  <!-- 随机图形装饰 -->
+  <circle cx="666" cy="124" r="16" fill="#f72585" opacity="0.16025096075622203"/><circle cx="495" cy="200" r="28" fill="#f72585" opacity="0.20751752114213012"/><polygon points="247,279 262,330 288,330" fill="#f72585" opacity="0.23319966592040886"/><circle cx="532" cy="154" r="34" fill="#f72585" opacity="0.14047456925838797"/><circle cx="548" cy="158" r="11" fill="#f72585" opacity="0.18611052820198737"/><circle cx="134" cy="185" r="19" fill="#f72585" opacity="0.12707393814954115"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#f72585">#12</text>
+</svg>

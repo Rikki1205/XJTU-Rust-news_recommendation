@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#f8961e20" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#f8961e" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">社会</text>
+  
+  <!-- 随机图形装饰 -->
+  <polygon points="642,123 652,159 699,159" fill="#f8961e" opacity="0.26070132897468445"/><rect x="394" y="138" width="54" height="78" fill="#f8961e" opacity="0.12881528206820564" rx="5" ry="5"/><circle cx="230" cy="151" r="58" fill="#f8961e" opacity="0.23349917869327383"/><circle cx="304" cy="334" r="23" fill="#f8961e" opacity="0.137872543523197"/><circle cx="236" cy="178" r="12" fill="#f8961e" opacity="0.1384458884057001"/><circle cx="532" cy="218" r="37" fill="#f8961e" opacity="0.23369508676969308"/><rect x="369" y="238" width="28" height="48" fill="#f8961e" opacity="0.2735411093108926" rx="5" ry="5"/><polygon points="508,227 537,265 556,265" fill="#f8961e" opacity="0.11163541683109877"/><rect x="677" y="340" width="58" height="60" fill="#f8961e" opacity="0.22442136583078554" rx="5" ry="5"/><rect x="225" y="234" width="64" height="71" fill="#f8961e" opacity="0.16584897030508805" rx="5" ry="5"/><rect x="309" y="177" width="55" height="36" fill="#f8961e" opacity="0.13387513653832395" rx="5" ry="5"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#f8961e">#4</text>
+</svg>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录注册 - 智能新闻推荐系统</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-header">
+            <div class="logo">
+                <h1>智能新闻<span>推荐</span></h1>
+            </div>
+            <a href="/" class="back-home">
+                <i class="fas fa-arrow-left"></i> 返回首页
+            </a>
+        </div>
+
+        <div class="auth-forms">
+            <!-- 登录表单 -->
+            <div class="auth-form login-form active" id="login-form">
+                <h2><i class="fas fa-sign-in-alt"></i> 用户登录</h2>
+                <form id="login-form-element">
+                    <div class="form-group">
+                        <label for="login-username">
+                            <i class="fas fa-user"></i> 用户名
+                        </label>
+                        <input type="text" id="login-username" name="username" required 
+                               placeholder="请输入用户名">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">
+                            <i class="fas fa-lock"></i> 密码
+                        </label>
+                        <input type="password" id="login-password" name="password" required 
+                               placeholder="请输入密码">
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-sign-in-alt"></i> 登录
+                    </button>
+                </form>
+                <div class="auth-switch">
+                    <p>还没有账号？ <a href="#" id="show-register">立即注册</a></p>
+                </div>
+            </div>
+
+            <!-- 注册表单 -->
+            <div class="auth-form register-form" id="register-form">
+                <h2><i class="fas fa-user-plus"></i> 用户注册</h2>
+                <form id="register-form-element">
+                    <div class="form-group">
+                        <label for="register-username">
+                            <i class="fas fa-user"></i> 用户名
+                        </label>
+                        <input type="text" id="register-username" name="username" required 
+                               placeholder="请输入用户名（3-20个字符）" 
+                               minlength="3" maxlength="20">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">
+                            <i class="fas fa-envelope"></i> 邮箱
+                        </label>
+                        <input type="email" id="register-email" name="email" required 
+                               placeholder="请输入邮箱地址">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">
+                            <i class="fas fa-lock"></i> 密码
+                        </label>
+                        <input type="password" id="register-password" name="password" required 
+                               placeholder="请输入密码（至少6位）" 
+                               minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">
+                            <i class="fas fa-lock"></i> 确认密码
+                        </label>
+                        <input type="password" id="register-confirm-password" name="confirmPassword" required 
+                               placeholder="请再次输入密码">
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-user-plus"></i> 注册
+                    </button>
+                </form>
+                <div class="auth-switch">
+                    <p>已有账号？ <a href="#" id="show-login">立即登录</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 消息提示 -->
+        <div class="message-container" id="message-container"></div>
+    </div>
+
+    <!-- 加载动画 -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>处理中...</p>
+        </div>
+    </div>
+
+    <script src="/static/js/auth.js"></script>
+</body>
+</html> 

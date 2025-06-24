@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f5f7ff" rx="20" ry="20"/>
+  
+  <!-- 图表底板 -->
+  <rect x="100" y="100" width="600" height="400" fill="#ffffff" rx="15" ry="15" stroke="#4361ee" stroke-width="2"/>
+  
+  <!-- 图表标题 -->
+  <text x="400" y="150" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#212529">智能推荐系统</text>
+  
+  <!-- 图表 x 轴 -->
+  <line x1="150" y1="400" x2="650" y2="400" stroke="#6c757d" stroke-width="2"/>
+  <text x="400" y="440" font-family="Arial" font-size="16" text-anchor="middle" fill="#6c757d">新闻类别</text>
+  
+  <!-- 图表 y 轴 -->
+  <line x1="150" y1="150" x2="150" y2="400" stroke="#6c757d" stroke-width="2"/>
+  <text x="100" y="275" font-family="Arial" font-size="16" text-anchor="middle" fill="#6c757d" transform="rotate(-90 100 275)">用户兴趣度</text>
+  
+  <!-- 普通推荐线 -->
+  <polyline points="150,350 250,330 350,340 450,320 550,330 650,310" fill="none" stroke="#3a0ca3" stroke-width="3"/>
+  
+  <!-- 智能推荐线 -->
+  <polyline points="150,300 250,260 350,230 450,200 550,180 650,150" fill="none" stroke="#f72585" stroke-width="3"/>
+  
+  <!-- 数据点 - 普通推荐 -->
+  <circle cx="150" cy="350" r="6" fill="#3a0ca3"/>
+  <circle cx="250" cy="330" r="6" fill="#3a0ca3"/>
+  <circle cx="350" cy="340" r="6" fill="#3a0ca3"/>
+  <circle cx="450" cy="320" r="6" fill="#3a0ca3"/>
+  <circle cx="550" cy="330" r="6" fill="#3a0ca3"/>
+  <circle cx="650" cy="310" r="6" fill="#3a0ca3"/>
+  
+  <!-- 数据点 - 智能推荐 -->
+  <circle cx="150" cy="300" r="6" fill="#f72585"/>
+  <circle cx="250" cy="260" r="6" fill="#f72585"/>
+  <circle cx="350" cy="230" r="6" fill="#f72585"/>
+  <circle cx="450" cy="200" r="6" fill="#f72585"/>
+  <circle cx="550" cy="180" r="6" fill="#f72585"/>
+  <circle cx="650" cy="150" r="6" fill="#f72585"/>
+  
+  <!-- 图例 -->
+  <rect x="300" y="470" width="20" height="10" fill="#3a0ca3"/>
+  <text x="330" y="480" font-family="Arial" font-size="14" fill="#212529">普通推荐</text>
+  
+  <rect x="450" y="470" width="20" height="10" fill="#f72585"/>
+  <text x="480" y="480" font-family="Arial" font-size="14" fill="#212529">智能推荐</text>
+  
+  <!-- 装饰元素 - 大脑图标 -->
+  <path d="M720,80 C730,60 750,50 770,60 C790,70 790,100 770,110 C760,115 760,125 770,130 C780,135 780,155 770,160 C760,165 750,155 740,160 C730,165 720,180 700,175 C680,170 680,150 700,145 C710,142 710,135 700,130 C680,120 680,90 700,80 C710,75 710,85 720,80 Z" fill="#4cc9f0" opacity="0.7"/>
+  
+  <!-- 装饰元素 - 齿轮图标 -->
+  <circle cx="60" cy="520" r="40" fill="#f72585" opacity="0.2"/>
+  <circle cx="60" cy="520" r="15" fill="#f72585" opacity="0.6"/>
+  <path d="M60,490 L65,490 L67,505 L53,505 L55,490 Z" fill="#f72585"/>
+  <path d="M60,535 L65,535 L67,550 L53,550 L55,535 Z" fill="#f72585"/>
+  <path d="M30,520 L30,525 L45,527 L45,513 L30,515 Z" fill="#f72585"/>
+  <path d="M75,520 L75,525 L90,527 L90,513 L75,515 Z" fill="#f72585"/>
+  
+  <!-- 装饰元素 - 数据流图标 -->
+  <rect x="720" y="520" width="60" height="10" rx="5" ry="5" fill="#4361ee" opacity="0.6"/>
+  <rect x="700" y="490" width="40" height="10" rx="5" ry="5" fill="#4361ee" opacity="0.4"/>
+  <rect x="750" y="490" width="30" height="10" rx="5" ry="5" fill="#4361ee" opacity="0.8"/>
+  <rect x="710" y="460" width="50" height="10" rx="5" ry="5" fill="#4361ee" opacity="0.5"/>
+</svg>

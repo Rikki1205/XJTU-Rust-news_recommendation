@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#3a0ca320" rx="10" ry="10"/>
+  
+  <!-- 装饰图形 -->
+  <rect x="20" y="20" width="760" height="410" fill="white" opacity="0.1" rx="10" ry="10"/>
+  
+  <!-- 类别标记 -->
+  <rect x="30" y="30" width="120" height="40" fill="#3a0ca3" rx="5" ry="5"/>
+  <text x="90" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">经济</text>
+  
+  <!-- 随机图形装饰 -->
+  <circle cx="198" cy="211" r="55" fill="#3a0ca3" opacity="0.15971078466478753"/><polygon points="247,282 267,341 305,341" fill="#3a0ca3" opacity="0.2978297702455342"/><circle cx="178" cy="295" r="47" fill="#3a0ca3" opacity="0.15696848176203404"/><polygon points="434,218 463,272 489,272" fill="#3a0ca3" opacity="0.24576512585711022"/><rect x="623" y="237" width="55" height="71" fill="#3a0ca3" opacity="0.1054417969545891" rx="5" ry="5"/><circle cx="206" cy="170" r="48" fill="#3a0ca3" opacity="0.20668835689099466"/>
+  
+  <!-- 新闻编号 -->
+  <text x="750" y="420" font-family="Arial" font-size="24" font-weight="bold" text-anchor="end" fill="#3a0ca3">#15</text>
+</svg>
